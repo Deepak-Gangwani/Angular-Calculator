@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg"
+        type="image/x-icon">
+    <title>JS Events Using Angular</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .border-animation {
+            border: 10px solid red;
+            animation: effect 5s infinite;
+        }
+
+        @keyframes effect {
+            0% {
+                border-color: red;
+            }
+
+            25% {
+                border-color: rgb(0, 255, 47);
+            }
+
+            50% {
+                border-color: blueviolet;
+            }
+
+            75% {
+                border-color: yellow;
+            }
+
+            100% {
+                border-color: orangered;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-center">
+    <nav class="navbar bg-info">
+        <div class="container-fluid">
+            <div class="container d-flex">
+                <a class="navbar-brand" href="https://angular.io/docs" target="_blank"><img
+                        src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" width="50px"
+                        height="50px" alt=""></a>
+
+                <marquee class="text-danger fs-1 fw-bold"> Welcome To Angular All JS Events</marquee>
+
+                <button id="darkModeToggle" class="btn btn-sm btn-outline-dark">Dark</button>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <main>
+
+        <div class="container-fluid p-5">
+            <div class="container p-5 border border-5">
+                <h1 class="alert alert-warning">CALCULATOR USING ANGULAR JS</h1>
+                <div ng-app="">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="number" ng-model="num1" class="form-control" placeholder="Enter 1st number"
+                                aria-label="First name">
+                        </div>
+                        <div class="col">
+                            <input type="number" ng-model="num2" class="form-control" placeholder="Enter 2nd number"
+                                aria-label="Last name">
+                        </div>
+                    </div>
+                    <div class="row mb-3 gap-4">
+                        <h4 class="col alert alert-danger">Your 1st number--> <span ng-bind="num1">{{num1}}</span> </h4>
+                        <h4 class="col alert alert-danger">Your 2nd number--> <span ng-bind="num2">{{num2}}</span></h4>
+
+                    </div>
+
+
+
+                    <div class="border-animation p-5 rounded-3">
+                        <h1 class="alert alert-info">Addition of {{num1}} and {{num2}} is {{ num1 +num2 }}</h1>
+                        <h1 class="alert alert-info">Subtraction of {{num1}} and {{num2}} is {{ num1 - num2 }}</h1>
+                        <h1 class="alert alert-info">Multiplication of {{num1}} and {{num2}} is {{ num1 * num2 }}</h1>
+                        <h1 class="alert alert-info">Division of {{num1}} and {{num2}} is {{ num1 / num2 }}</h1>
+                        <h1 class="alert alert-info">Modulus of {{num1}} and {{num2}} is {{ num1 % num2 }}</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+<!-- 
+        <div class="container-fluid p-5">
+            <div class="container p-5 border border-5">
+                <h1 class="alert alert-warning">EVENTS USING ANGULAR JS</h1>
+                <div class="row">
+                    <div class="col border-animation">
+                        <h3>On-Click Event Function</h3>
+                        <div ng-app="" ng-init="c=0" class="">
+                            <button class="btn  btn-outline-info" ng-click="c=c+1">Click Me</button>
+                            <h1>{{c}}</h1>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
+
+            </div>
+        </div> -->
+
+
+
+    </main>
+    <div class="mt-5 p-4 bg-info text-center text-danger fs-3  fw-semibold">
+        <p><span>
+                <a href="https://angular.io/docs" target="_blank"><img width="50px" height="50px"
+                        src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt=""></a></span>©
+            2024
+            Deepak Gangwani (NSTI Jodhpur)</p>
+    </div>
+
+
+    <script>
+        // Retrieve dark mode preference from localStorage
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+        // Apply dark mode if it was enabled
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Toggle dark mode on button click
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+
+            // Update localStorage with the current dark mode state
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
